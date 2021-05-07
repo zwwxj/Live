@@ -33,7 +33,6 @@ public class ToastUtils {
     }
 
     public void init(Context context){
-    //    Glide.init();
         this.toast = new Toast(context);
         View view = LayoutInflater.from(context).inflate(R.layout.toast_view, null);
         this.mIvIcon = view.findViewById(R.id.mIvIcon);

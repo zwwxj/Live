@@ -7,7 +7,7 @@ package com.my.base.retrofit
 data class ResultData<T>(val requestStatus: RequestStatus,
                          val data: T?,
                          val isCache: Boolean = false,
-                         val error: Throwable? = null,
+                         val error: ApiException? = null,
                          val tag: Any? = null) {
     companion object {
 
@@ -34,7 +34,7 @@ data class ResultData<T>(val requestStatus: RequestStatus,
             )
         }
 
-        fun <T> error(error: Throwable?): ResultData<T> {
+        fun <T> error(error: ApiException?): ResultData<T> {
             return ResultData(
                 RequestStatus.ERROR,
                 null,

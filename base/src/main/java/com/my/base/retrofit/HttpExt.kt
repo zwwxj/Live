@@ -69,9 +69,10 @@ inline fun <ResponseType, ResultType> CoroutineScope.requestLiveDataInner(
     return liveData(this.coroutineContext) {
 
         action.mLoadCache?.invoke()?.let {
-            val cacheResult = Transformations.map<ResultType, ResultData<ResultType>>(it) { resultType ->
-                ResultData.success(resultType, true)
-            }
+            val cacheResult =
+                Transformations.map<ResultType, ResultData<ResultType>>(it) { resultType ->
+                    ResultData.success(resultType, true)
+                }
             emitSource(cacheResult)
         }
 
@@ -81,7 +82,8 @@ inline fun <ResponseType, ResultType> CoroutineScope.requestLiveDataInner(
             val resultBean = action.api?.invoke()
             ApiResponse.create<ResponseType>(resultBean)
         } catch (e: Throwable) {
-            ApiResponse.create<ResponseType>(e)
+            val exception = ApiException.getApiException(e)
+            ApiResponse.create<ResponseType>(exception)
         }
 
         val result = when (apiResponse) {
@@ -110,4 +112,6 @@ inline fun <ResponseType, ResultType> CoroutineScope.requestLiveDataInner(
 
         emit(ResultData.complete<ResultType>(result))
     }
+
+
 }

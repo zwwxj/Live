@@ -8,9 +8,12 @@ import androidx.activity.viewModels
 import com.my.base.component.activity.BaseDataBindingActivity
 import com.my.base.component.activity.TestActivity
 import com.my.base.retrofit.RequestStatus
+import com.my.base.util.ToastUtils
 import com.my.live.R
 import com.my.live.databinding.ActivityMainBinding
 import com.my.live.viewmodel.LoginViewModel
+import com.zs.base_library.common.toast
+import com.zs.base_library.utils.SPUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,8 +30,9 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
         }
 
         binding.btn1.setOnClickListener {
-            startActivity(Intent(this, TestActivity::class.java))
+             startActivity(Intent(this, TestActivity::class.java))
         }
+        toast("dsaasdas")
 
         var i = 1
         model._repos.observe(this) {
@@ -45,7 +49,7 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
                     }
                 }
                 RequestStatus.ERROR -> {
-                    Log.i("csz", "error ${it.error?.message}")
+                    Log.i("csz", "error ${it.error?.errorMessage}")
                 }
             }
         }

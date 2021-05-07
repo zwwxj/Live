@@ -3,6 +3,7 @@ package com.my.live
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
+import com.my.base.util.ContextUtils
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -21,5 +22,7 @@ class App:Application(){
     override fun onCreate() {
         super.onCreate()
         instance = this
+
+        ContextUtils.init(this)
     }
 }

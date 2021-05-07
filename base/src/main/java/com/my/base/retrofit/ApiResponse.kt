@@ -5,7 +5,7 @@ package com.my.base.retrofit
  */
 sealed class ApiResponse<T> {
     companion object {
-        fun <T> create(error: Throwable): ApiErrorResponse<T> {
+        fun <T> create(error: ApiException): ApiErrorResponse<T> {
             return ApiErrorResponse(error)
         }
 
@@ -24,4 +24,4 @@ class ApiEmptyResponse<T> : ApiResponse<T>()
 
 data class ApiSuccessResponse<T>(val body: T) : ApiResponse<T>()
 
-data class ApiErrorResponse<T>(val throwable: Throwable) : ApiResponse<T>()
+data class ApiErrorResponse<T>(val throwable: ApiException) : ApiResponse<T>()
