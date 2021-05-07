@@ -1,0 +1,21 @@
+apply plugin: 'com.android.application'
+apply from: "../basic.gradle"
+
+android {
+    defaultConfig {
+        applicationId Version.applicationId
+        versionCode Version.versionCode
+        versionName Version.versionName
+        multiDexEnabled true
+    }
+}
+
+dependencies {
+    implementation project(":base")
+    //hilt需要所有地方都直接依赖
+    api(Android.hilt.hilt)
+    kapt(Android.hilt.hiltCompiler)
+    api(Android.hilt.hiltCommon)
+    api(Android.hilt.hiltViewmodel)
+    kapt(Android.hilt.hiltAndroidCompiler)
+}

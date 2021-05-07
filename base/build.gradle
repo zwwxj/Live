@@ -1,0 +1,72 @@
+plugins {
+    id 'com.android.library'
+}
+apply from: "../basic.gradle"
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api(Kotlin.kotlinStdlib)
+    api(Kotlin.coroutines.core)
+    api(Kotlin.coroutines.android)
+
+    api(Android.viewpager2)
+    api(Android.paging)
+    api(Android.legacy)
+    api(Android.constraintlayout)
+    api(Android.appcompat)
+    api(Android.coreKtx)
+    api(Android.multidex)
+    api(Android.material)
+
+    /**
+     * lifecycle相关包括liveData、viewModel
+     */
+    api(Android.lifecycle.extensions)
+    api(Android.lifecycle.liveDataKtx)
+    api(Android.lifecycle.viewModelKtx)
+
+    /**
+     * navigation相关
+     */
+    api(Android.navigation.fragmentKtx)
+    api(Android.navigation.uiKtx)
+
+    api(Android.room.roomRuntime)
+    api(Android.room.roomKtx)
+    kapt(Android.room.roomCompiler)
+
+    api(Android.hilt.hilt)
+    kapt(Android.hilt.hiltCompiler)
+    api(Android.hilt.hiltCommon)
+    api(Android.hilt.hiltViewmodel)
+    kapt(Android.hilt.hiltAndroidCompiler)
+
+    api(ThirdParty.okhttp)
+    api(ThirdParty.rxjava)
+    api(ThirdParty.rxAndroid)
+    api(ThirdParty.cookieJar)
+    api(ThirdParty.baseQuickAdapter)
+    api(ThirdParty.eventBus)
+    api(ThirdParty.aviUi)
+    api(ThirdParty.banner)
+    api(ThirdParty.magic)
+    api(ThirdParty.permission)
+    api(ThirdParty.immersionbar)
+    api(ThirdParty.immersionbarComponents)
+
+    api(ThirdParty.retrofit.retrofit)
+    api(ThirdParty.retrofit.logInterceptor)
+    api(ThirdParty.retrofit.scalars)
+    api(ThirdParty.retrofit.gson)
+    api(ThirdParty.retrofit.moshi)
+
+    api(ThirdParty.moshi.moshi)
+    kapt(ThirdParty.moshi.moshiCodegen)
+
+    api(ThirdParty.glide.glide)
+    api(ThirdParty.glide.transformations)
+
+    api(ThirdParty.smart.smart)
+    api(ThirdParty.smart.head)
+}

@@ -1,0 +1,40 @@
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion Version.compileSdkVersion
+    buildToolsVersion Version.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion Version.minSdkVersion
+        targetSdkVersion Version.targetSdkVersion
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+        kotlinOptions {
+            jvmTarget = "1.8"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable false
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            debuggable true
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+        viewBinding true
+    }
+
+}
