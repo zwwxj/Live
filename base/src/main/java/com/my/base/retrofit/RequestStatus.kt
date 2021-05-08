@@ -6,6 +6,5 @@ package com.my.base.retrofit
 enum class RequestStatus {
     START,
     SUCCESS,
-    COMPLETE,
     ERROR
 }

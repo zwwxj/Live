@@ -26,14 +26,6 @@ data class ResultData<T>(val requestStatus: RequestStatus,
             )
         }
 
-        fun <T> complete(data: T?): ResultData<T> {
-            return ResultData(
-                RequestStatus.COMPLETE,
-                data,
-                false
-            )
-        }
-
         fun <T> error(error: ApiException?): ResultData<T> {
             return ResultData(
                 RequestStatus.ERROR,

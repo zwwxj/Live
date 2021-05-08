@@ -16,7 +16,10 @@ class LoginViewModel @ViewModelInject constructor(
     @Assisted private val savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private var repos: MutableLiveData<Repos> = MutableLiveData()
+    val KEY_REQ_1 = "KEY_REQ_1"
+    val KEY_REQ_2 = "KEY_REQ_2"
+
+    private val repos: MutableLiveData<Repos> = savedStateHandle.getLiveData(KEY_REQ_1)
     val _repos: LiveData<Repos> = repos
 
 
@@ -28,19 +31,18 @@ class LoginViewModel @ViewModelInject constructor(
     fun getReposWithCoroutine() {
         apply({
             val result = api.getResult()
-            repos.value = result
-            Log.i("csz", "repos $repos ")
+            savedStateHandle.set(KEY_REQ_1,result)
+            Log.i("csz", "repos $repos ${_repos.value} ${result}")
         }, {
             Log.i("csz", "error ${it.message} ")
         })
     }
 
-    fun getByRetrofit(){
+    fun getByRetrofit() {
         val liveData = viewModelScope.requestLiveData<Repos> {
             api {
                 this@LoginViewModel.api.getResult()
             }
-
         }
         retrofit.addSourceAutoRemove(liveData)
     }

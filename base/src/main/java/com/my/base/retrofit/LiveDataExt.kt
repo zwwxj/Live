@@ -8,9 +8,10 @@ import androidx.lifecycle.MediatorLiveData
  */
 fun <T> MediatorLiveData<ResultData<T>>.addSourceAutoRemove(liveData: LiveData<ResultData<T>>) {
     this.addSource(liveData) {
-        if (it.requestStatus == RequestStatus.COMPLETE) {
+        if (it.requestStatus != RequestStatus.START) {
             this.removeSource(liveData)
         }
         this.value = it
     }
 }
+

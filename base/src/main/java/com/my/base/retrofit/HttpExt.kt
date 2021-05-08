@@ -86,9 +86,9 @@ inline fun <ResponseType, ResultType> CoroutineScope.requestLiveDataInner(
             ApiResponse.create<ResponseType>(exception)
         }
 
-        val result = when (apiResponse) {
+        when (apiResponse) {
             is ApiEmptyResponse -> {
-                null
+                emit(ResultData.success<ResultType>(null, false))
             }
             is ApiSuccessResponse -> {
                 val result = action.transformer?.invoke(apiResponse.body)
@@ -106,12 +106,8 @@ inline fun <ResponseType, ResultType> CoroutineScope.requestLiveDataInner(
             }
             is ApiErrorResponse -> {
                 emit(ResultData.error<ResultType>(apiResponse.throwable))
-                null
             }
         }
-
-        emit(ResultData.complete<ResultType>(result))
     }
-
 
 }

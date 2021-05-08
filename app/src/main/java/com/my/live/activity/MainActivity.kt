@@ -32,12 +32,14 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
         binding.btn1.setOnClickListener {
              startActivity(Intent(this, TestActivity::class.java))
         }
-        toast("dsaasdas")
 
-        var i = 1
+
         model._repos.observe(this) {
-            binding.btn2.text = "${it.name} ${it.id + i++}"
+            binding.btn2.text = "${it.name} ${it.id}"
         }
+
+        Log.i("csz","model ${model.hashCode()}   ${model._liveRetrofit.hashCode()}   ${model._liveRetrofit.value}")
+
 
         model._liveRetrofit.observe(this) {
             when (it.requestStatus) {
@@ -45,7 +47,7 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
                 }
                 RequestStatus.SUCCESS -> {
                     it.data?.let {
-                        binding.btn3.text = "${it.name} ${it.id + i++}"
+                        binding.btn3.text = "${it.name} ${it.id}"
                     }
                 }
                 RequestStatus.ERROR -> {
