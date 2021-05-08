@@ -3,13 +3,16 @@ package com.zs.base_library.common
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.res.TypedArray
+import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
+import androidx.navigation.Navigator
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -165,7 +168,6 @@ fun EditText.keyBoardSearch(onClick: () -> Unit) {
         return@setOnEditorActionListener true
     }
 }
-
 
 fun dp2px(dpValue: Float): Int {
     val scale: Float = ContextUtils.getContext().resources.displayMetrics.density

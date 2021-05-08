@@ -2,7 +2,6 @@ package com.zs.base_library.utils
 
 import android.app.Person
 import android.os.Build
-import android.view.View
 import androidx.annotation.RequiresApi
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonReader
@@ -110,6 +109,4 @@ fun test(){
     //list转json
     val json = list.toJson()
 }
-
-
 

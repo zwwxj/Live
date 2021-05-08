@@ -32,7 +32,7 @@ object ThirdParty {
 
     val moshi = Moshi
     object Moshi{
-        private const val moshi_version = "1.8.0"
+        private const val moshi_version = "1.10.0"
         const val moshi = "com.squareup.moshi:moshi:$moshi_version"
         //需要在bean对象上使用注解@JsonClass(generateAdapter=true)
         const val moshiCodegen = "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"

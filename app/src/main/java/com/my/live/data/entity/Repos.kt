@@ -2,10 +2,16 @@ package com.my.live.data.entity
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.squareup.moshi.Json
+import com.squareup.moshi.JsonClass
 
+
+@JsonClass(generateAdapter = true)
 data class Repos(
-    val id: Int,
-    val name: String
+    @Json(name = "id")
+    var id: Int,
+    @Json(name = "name")
+    var name: String
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readInt(),

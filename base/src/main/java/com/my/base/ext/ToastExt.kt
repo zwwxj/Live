@@ -9,9 +9,8 @@ import com.my.base.util.ContextUtils
 import com.my.base.util.ToastUtils
 
 /**
- * des Toast工具类
- * @date 2020/5/14
- * @author zs
+ *
+ * @author caishuzhan
  */
 
 fun Context.toast(content: String, duration: Int = Toast.LENGTH_SHORT) {

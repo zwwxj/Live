@@ -18,4 +18,6 @@ dependencies {
     api(Android.hilt.hiltCommon)
     api(Android.hilt.hiltViewmodel)
     kapt(Android.hilt.hiltAndroidCompiler)
+    //moshi生成器
+    kapt(ThirdParty.moshi.moshiCodegen)
 }

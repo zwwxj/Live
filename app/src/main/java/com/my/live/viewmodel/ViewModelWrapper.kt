@@ -18,3 +18,13 @@ import kotlinx.coroutines.launch
         }
     }
 }
+
+
+open public class Dependency {
+    var libs = mutableListOf<String>()
+    fun implementation(lib: String) {
+        libs.add(lib)
+    }
+}
+
+

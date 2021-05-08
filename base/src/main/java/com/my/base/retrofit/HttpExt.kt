@@ -67,7 +67,6 @@ inline fun <ResponseType, ResultType> CoroutineScope.requestLiveDataInner(
 ): LiveData<ResultData<ResultType>> {
     val action = RequestAction<ResponseType, ResultType>().apply(dsl)
     return liveData(this.coroutineContext) {
-
         action.mLoadCache?.invoke()?.let {
             val cacheResult =
                 Transformations.map<ResultType, ResultData<ResultType>>(it) { resultType ->

@@ -31,7 +31,7 @@ class LoginViewModel @ViewModelInject constructor(
     fun getReposWithCoroutine() {
         apply({
             val result = api.getResult()
-            savedStateHandle.set(KEY_REQ_1,result)
+            savedStateHandle.set(KEY_REQ_1, result)
             Log.i("csz", "repos $repos ${_repos.value} ${result}")
         }, {
             Log.i("csz", "error ${it.message} ")
@@ -39,11 +39,12 @@ class LoginViewModel @ViewModelInject constructor(
     }
 
     fun getByRetrofit() {
-        val liveData = viewModelScope.requestLiveData<Repos> {
+        retrofit.addSourceAutoRemove(viewModelScope.requestLiveData<Repos> {
             api {
                 this@LoginViewModel.api.getResult()
             }
-        }
-        retrofit.addSourceAutoRemove(liveData)
+
+
+        })
     }
 }
