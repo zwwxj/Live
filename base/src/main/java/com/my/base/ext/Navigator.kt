@@ -10,6 +10,7 @@ import com.my.base.util.ContextUtils
 import java.io.Serializable
 
 /**
+ * 跳转封装
  * @author caishuzhan
  */
 object NavigatorExt {

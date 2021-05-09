@@ -33,7 +33,6 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
         }
 
         binding.btn1.setOnClickListener {
-
             navigateTo<TestActivity>("a" to arrayOf(10,20,30))
         }
 
@@ -59,6 +58,28 @@ class MainActivity : BaseDataBindingActivity<ActivityMainBinding>() {
                     Log.i("csz", "error ${it.error?.errorMessage}")
                 }
             }
+        }
+
+        model._Trans.observe(this) {
+            when (it.requestStatus) {
+                RequestStatus.START -> {
+                }
+                RequestStatus.SUCCESS -> {
+                    it.data?.let {
+                        binding.btn4.text = "${it.name} ${it.id}"
+                    }
+                }
+                RequestStatus.ERROR -> {
+                    Log.i("csz", "error ${it.error?.errorMessage}")
+                }
+            }
+        }
+
+        model._live4.observe(this) {
+            binding.btn5.text = "${it.name} ${it.id}"
+        }
+        model._error.observe(this){
+            toast(it.errorMessage)
         }
     }
 

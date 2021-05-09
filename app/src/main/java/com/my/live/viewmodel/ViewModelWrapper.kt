@@ -1,7 +1,9 @@
 package com.my.live.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.my.live.data.entity.Req
 import kotlinx.coroutines.launch
 
 /**
@@ -9,7 +11,7 @@ import kotlinx.coroutines.launch
  * @param e 异常回调
  * @author caishuzhan
  */
- fun ViewModel.apply( op:suspend () -> Unit,  e: (e: Exception) -> Unit) {
+fun ViewModel.apply(op: suspend () -> Unit, e: (e: Exception) -> Unit) {
     viewModelScope.launch {
         try {
             op()
@@ -19,12 +21,13 @@ import kotlinx.coroutines.launch
     }
 }
 
-
-open public class Dependency {
-    var libs = mutableListOf<String>()
-    fun implementation(lib: String) {
-        libs.add(lib)
-    }
+/**
+ * 通知请求
+ */
+fun MutableLiveData<Any>.req() {
+    this.value = Req()
 }
+
+
 
 
