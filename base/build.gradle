@@ -43,8 +43,6 @@ dependencies {
     kapt(Android.hilt.hiltAndroidCompiler)
 
     api(ThirdParty.okhttp)
-    api(ThirdParty.rxjava)
-    api(ThirdParty.rxAndroid)
     api(ThirdParty.cookieJar)
     api(ThirdParty.baseQuickAdapter)
     api(ThirdParty.eventBus)

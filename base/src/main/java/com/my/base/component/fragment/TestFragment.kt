@@ -2,10 +2,8 @@ package com.my.base.component.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.my.base.R
-import com.my.base.databinding.ActivityTestBinding
 import com.my.base.databinding.FragmentTestBinding
 
 /**

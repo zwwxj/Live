@@ -10,8 +10,6 @@ import com.squareup.moshi.Types
 import com.squareup.moshi.internal.Util
 import okio.Buffer
 import okio.BufferedSource
-import java.io.Closeable
-import java.io.IOException
 import java.io.InputStream
 import java.lang.reflect.ParameterizedType
 import java.lang.reflect.Type

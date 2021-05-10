@@ -1,7 +1,6 @@
 package com.my.live.activity
 
 import android.annotation.SuppressLint
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
@@ -9,14 +8,10 @@ import com.my.base.component.activity.BaseDataBindingActivity
 import com.my.base.component.activity.TestActivity
 import com.my.base.ext.navigateTo
 import com.my.base.retrofit.RequestStatus
-import com.my.base.util.ToastUtils
 import com.my.live.R
-import com.my.live.data.entity.Repos
 import com.my.live.databinding.ActivityMainBinding
 import com.my.live.viewmodel.LoginViewModel
 import com.zs.base_library.common.toast
-import com.zs.base_library.utils.MoshiUtils
-import com.zs.base_library.utils.SPUtils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

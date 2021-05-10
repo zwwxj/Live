@@ -8,11 +8,7 @@ import com.my.base.component.viewmodel.BaseViewModel
 import com.my.base.retrofit.*
 import com.my.live.data.entity.Repos
 import com.my.live.data.entity.Req
-import com.my.live.remote.api.LoginApi
 import com.my.live.remote.repository.LoginRepository
-import dagger.hilt.EntryPoint
-import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 /**
  * @author caishuzhan
