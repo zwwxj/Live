@@ -16,6 +16,7 @@ object ThirdParty {
     const val permission = "com.github.zsgfrtttt:AndPermission:1.1.0"
     const val immersionbar = "com.gyf.immersionbar:immersionbar:3.0.0"
     const val immersionbarComponents = "com.gyf.immersionbar:immersionbar-components:3.0.0"
+    const val compressor= "com.github.nanchen2251:CompressHelper:1.0.5"
 
 
     val retrofit = Retrofit
