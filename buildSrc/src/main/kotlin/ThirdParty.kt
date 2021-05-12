@@ -17,7 +17,7 @@ object ThirdParty {
     const val immersionbar = "com.gyf.immersionbar:immersionbar:3.0.0"
     const val immersionbarComponents = "com.gyf.immersionbar:immersionbar-components:3.0.0"
     const val compressor= "com.github.nanchen2251:CompressHelper:1.0.5"
-
+    const val imagePicker = "com.github.zsgfrtttt:ImagePicker:1.0.1"
 
     val retrofit = Retrofit
     object Retrofit {

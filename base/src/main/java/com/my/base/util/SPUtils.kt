@@ -13,7 +13,7 @@ import java.util.*
 /**
  * SharePreference封装
  *
- * @author zs
+ * @author caishuzhan
  */
 object SPUtils {
 
@@ -30,70 +30,6 @@ object SPUtils {
         return sp.getBoolean(key, defaultValue)
     }
 
-    fun putBoolean(ctx: Context, key: String, value: Boolean) {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        sp.edit().putBoolean(key, value).apply()
-    }
-
-    fun getString(ctx: Context, key: String, defaultValue: String): String? {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        return sp.getString(key, defaultValue)
-    }
-
-    fun getString(key: String, defaultValue: String): String? {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        return sp.getString(key, defaultValue)
-    }
-
-    fun putString(ctx: Context, key: String, value: String) {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        sp.edit().putString(key, value).apply()
-    }
-
-    fun putInt(ctx: Context, key: String, value: Int) {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        sp.edit().putInt(key, value).apply()
-    }
-
-    fun getInt(ctx: Context, key: String, defaultValue: Int): Int {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        return sp.getInt(key, defaultValue)
-    }
-
-    fun putLong(ctx: Context, key: String, value: Long) {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        sp.edit().putLong(key, value).apply()
-    }
-
-    fun getLong(ctx: Context, key: String, defaultValue: Long): Long {
-        val sp = getContext().getSharedPreferences(
-            PREF_NAME,
-            Context.MODE_PRIVATE
-        )
-        return sp.getLong(key, defaultValue)
-    }
-
     fun putBoolean(key: String, value: Boolean) {
         val sp = getContext().getSharedPreferences(
             PREF_NAME,
@@ -102,21 +38,15 @@ object SPUtils {
         sp.edit().putBoolean(key, value).apply()
     }
 
-    fun getString(key: String): String? {
+    fun getString( key: String, defaultValue: String): String? {
         val sp = getContext().getSharedPreferences(
             PREF_NAME,
             Context.MODE_PRIVATE
         )
-        var result: String? = null
-        result = try {
-            sp.getString(key, "")
-        } catch (e: ClassCastException) {
-            sp.getInt(key, -1).toString()
-        }
-        return result
+        return sp.getString(key, defaultValue)
     }
 
-    fun putString(key: String, value: String) {
+    fun putString( key: String, value: String) {
         val sp = getContext().getSharedPreferences(
             PREF_NAME,
             Context.MODE_PRIVATE
@@ -140,7 +70,7 @@ object SPUtils {
         return sp.getInt(key, defaultValue)
     }
 
-    fun putLong(key: String, value: Long) {
+    fun putLong( key: String, value: Long) {
         val sp = getContext().getSharedPreferences(
             PREF_NAME,
             Context.MODE_PRIVATE
@@ -148,9 +78,26 @@ object SPUtils {
         sp.edit().putLong(key, value).apply()
     }
 
-    fun getLong(key: String, defaultValue: Long): Long {
-        val sp = getContext().getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
+    fun getLong( key: String, defaultValue: Long): Long {
+        val sp = getContext().getSharedPreferences(
+            PREF_NAME,
+            Context.MODE_PRIVATE
+        )
         return sp.getLong(key, defaultValue)
+    }
+
+    fun getString(key: String): String? {
+        val sp = getContext().getSharedPreferences(
+            PREF_NAME,
+            Context.MODE_PRIVATE
+        )
+        var result: String?
+        result = try {
+            sp.getString(key, "")
+        } catch (e: ClassCastException) {
+            sp.getInt(key, -1).toString()
+        }
+        return result
     }
 
     fun putHashSet(key: String, value: HashSet<String>) {

@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Environment;
 import android.text.TextUtils;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.my.base.manager.FileStorageManager;
 
 import org.jetbrains.annotations.NotNull;

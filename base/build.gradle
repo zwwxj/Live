@@ -53,6 +53,7 @@ dependencies {
     api(ThirdParty.immersionbar)
     api(ThirdParty.immersionbarComponents)
     api(ThirdParty.compressor)
+    api(ThirdParty.imagePicker)
 
     api(ThirdParty.retrofit.retrofit)
     api(ThirdParty.retrofit.logInterceptor)
