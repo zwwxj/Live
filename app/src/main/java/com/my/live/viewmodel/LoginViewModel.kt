@@ -23,22 +23,22 @@ class LoginViewModel @ViewModelInject constructor(
     val KEY_REQ_3 = "KEY_REQ_3"
     val KEY_REQ_4 = "KEY_REQ_4"
 
-
-
+    //仅供参考
     private val repos: MutableLiveData<Repos> = savedStateHandle.getLiveData(KEY_REQ_1)
     val _repos: LiveData<Repos> = repos
 
-
+    //仅供参考
     private val retrofit = MediatorLiveData<ResultData<Repos>>()
     val _liveRetrofit: LiveData<ResultData<Repos>>
         get() = retrofit
 
-
+    //仅供参考
     private val trans: MutableLiveData<Any> = savedStateHandle.getLiveData(KEY_REQ_3)
     val _Trans = Transformations.switchMap(trans) {
         transforma()
     }
 
+    //推荐，标准用法
     private val live4: MutableLiveData<Repos> = savedStateHandle.getLiveData(KEY_REQ_4)
     val _live4: LiveData<Repos> = live4
 
